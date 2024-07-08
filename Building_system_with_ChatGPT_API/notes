@@ -1,0 +1,107 @@
+LLM:
+	Text generation process; give prompt and generate a completion.
+	How model learns to genarte a word -> using supervised learning
+
+A lang model is build by using supervised learning (X->Y) to repeatedly predict the next word.
+
+Supervised Learning(X->Y)
+For Restaurant reveiew sentiment classification
+
+	Input x					Output y
+The earl grey tea was fantastic			Positive
+etc...
+
+
+2 types of LLM:
+
+1) Base LLM: predict the next word, based on text training data
+	-> it may not give you correct ans because the data is trained on mostly web data.
+	for eg: what the capital of france ?
+	Completion: what is France's largest city ?
+	       	    what is France's population ?
+
+	Because of teh data tis tarined on having more question related to the topic then answering it.
+
+2) Instruction tuned LLM: Tried to follow instruction.
+	gives you the ans for capital of Frnace.
+
+Getting from a base LLM to an instriction tuned LLM:
+1) Train a base LLM on a lot of data. it takes many months to get it.
+2) Further train a model:
+   a) Fine-tune on examples of where the output follows an input instruction.
+   b) Obtain human-ratings of the quality of diff LLM outputs, on criteria such as whether it is helpful, honest and harmless.
+   c) Tune LLM to increase probability that it generates the more highly rated outputs.(using RLHF)
+
+
+
+Tokens:
+	sequence of charaters and form a token may not be a complete word always.
+	eg: prompting is a powerful developer tool.
+	Tokens for he above sentences is: prom pt int is a powerful developer tool .
+
+	For english lang input, 1 token is around 4 characters or 3/4 of a word.
+	Token limits: Different models have diff limits on the # of tokens in input 'context' + output completion.
+	gpt3.5 Turbo ~ 4000 tokens.
+
+system, user and Assitant messages:
+
+system: set overall tone or behaviour of assistant			system -> assistant -> user
+									   		    <-
+assistant: chat model
+user:you	
+
+
+Classification: Categorize the data into diff categories for easy access. By setting system_message
+
+Moderation: Check the input of the system, that it's not abusing to the system or not doing prompt injection.
+
+Chain of thought Reasoning: Provide a series of steps to get the correct reasoning and give time model to think.
+
+Chaining prompts: Consider the model as reasoning agent and give enough information to make prediction.
+	More focused: breaks down a complex task
+	Context Limitations: Max Tokens for input and output response
+	Reduced cost: pay per token
+
+Evaluation part 1:
+	Process of building application:
+	supervised learning	
+			Get Labelled data  -----> Train model on data 	------> Deploy and call model 
+				1 month			3 months		    3 months
+
+	Prompt based AI
+				Specify prompt ----> call model
+				minutes/hour 	      mintutes/hours
+
+
+	Just like supervised leaning, prompt based AI doesn't have the labelled data so you need to prepare it for your application.
+
+	1) tune prompts on handful of examples.
+	2) Add additional "tricky" examples opporutnistically.
+	3) Develop metrics to measure performance on examples.
+	4) Collect randomly sampled set of examples to tune to ( development set/hold out cross validation set)
+	5) Collect and use a hold out test set
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
