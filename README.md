@@ -1,2 +1,2 @@
-# deep_learning_short_courses
-Repo for posting the deeplearning.ai short courses
+# Deep Learning Short Courses
+This Repo contains code for deeplearning.ai short courses.
